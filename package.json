@@ -1,10 +1,13 @@
 {
-  "name": "funnel-react",
+  "name": "funnel-react-2",
   "version": "0.0.6",
   "description": "A very small library to create a modern and beautiful funnel",
   "author": "Xavier Gonzalez <xavivzla.g@gmail.com>",
   "license": "MIT",
-  "repository": "xavivzla/Funnel-React",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xavivzla/Funnel-React.git"
+  },
   "bugs": {
     "url": "https://github.com/xavivzla/Funnel-React/issues"
   },
@@ -89,5 +92,9 @@
   ],
   "dependencies": {
     "react-jss": "^10.0.0"
+  },
+  "homepage": "https://github.com/xavivzla/Funnel-React#readme",
+  "directories": {
+    "example": "example"
   }
 }

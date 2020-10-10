@@ -79,15 +79,17 @@ const data = [
 
 ```
 
-| props          | Type            | Default Value          | Options      |
-| -------------  |:--------------: | :--------------------: | :----------: |
-| labelKey       | string          |                        |              |
-| colors         | object          |                        |              |
-| valueKey       | string          |                        |              |
-| width          | number          | container width        |              |
-| displayPercent | boolean         | false                  | false / true |
-| data           | array           |                        |              |
-
+| props             | Type            | Default Value          | Options      |
+| ----------------  |:--------------: | :--------------------: | :----------: |
+| labelKey          | string          |                        |              |
+| colors            | object          |                        |              |
+| valueKey          | string          |                        |              |
+| width             | number          | container width        |              |
+| displayPercent    | boolean         | false                  | false / true |
+| data              | array           |                        |              |
+| renderLabel       | function        | null                   |              |
+| renderValue       | function        | null                   |              |
+| renderPercentage  | function        | null                   |              |
 ## License
 
 MIT © [xavivzla](https://github.com/xavivzla)

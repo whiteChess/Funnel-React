@@ -1,17 +1,17 @@
-import React, { useEffect, useRef } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 
-import FunnelGraph from '../../lib/init'
+import FunnelGraph from "../../lib/init";
 
-const normalizeData = (data, key) => data.map(item => item[key])
+const normalizeData = (data, key) => data.map((item) => item[key]);
 
 const renderPipeline = (config) => {
-  var graph = new FunnelGraph(config)
-  graph.draw()
-}
+  var graph = new FunnelGraph(config);
+  graph.draw();
+};
 
-const Funnel = props => {
-  const funnelRef = useRef(null)
+const Funnel = (props) => {
+  const funnelRef = useRef(null);
 
   useEffect(() => {
     const {
@@ -22,37 +22,44 @@ const Funnel = props => {
       width,
       colors,
       gradientDirection,
-      responsive
-    } = props
+      responsive,
+      renderLabel,
+      renderValue,
+      renderPercentage,
+    } = props;
 
     renderPipeline({
       container: funnelRef.current,
       data: {
         colors,
-        labels: props.hasOwnProperty('labelKey') ? normalizeData(data, labelKey) : [],
-        values: props.hasOwnProperty('valueKey') ? normalizeData(data, valueKey) : []
+        labels: props.hasOwnProperty("labelKey")
+          ? normalizeData(data, labelKey)
+          : [],
+        values: props.hasOwnProperty("valueKey")
+          ? normalizeData(data, valueKey)
+          : [],
       },
       displayPercent: props.displayPercent,
       gradientDirection,
       height,
       responsive,
-      width
-    })
-    
-  }, [])
+      renderLabel,
+      renderValue,
+      renderPercentage,
+      width,
+    });
+  }, []);
 
-  return <div ref={funnelRef} />
-}
-
+  return <div ref={funnelRef} />;
+};
 
 Funnel.propTypes = {
-  data:  PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired,
   valueKey: PropTypes.string.isRequired,
   labelKey: PropTypes.string,
   height: PropTypes.number.isRequired,
   colors: PropTypes.object,
-  responsive: PropTypes.bool
+  responsive: PropTypes.bool,
 };
 
-export default React.memo(Funnel)
- 
+export default React.memo(Funnel);
