@@ -54,7 +54,6 @@ class App extends Component {
             height={252}
             colors={{
               graph: ["#1890FF", "#BAE7FF"],
-              percent: "red",
               label: "yellow",
               value: "orange",
             }}
@@ -63,7 +62,7 @@ class App extends Component {
             responsive={true}
             displayPercent={true}
             renderLabel={(index, value) => {
-              return <span> {value} </span>;
+              return <span style={{fontSize: 20}}> {value} </span>;
             }}
             renderValue={(index, value) => {
               return <span> {value} </span>;

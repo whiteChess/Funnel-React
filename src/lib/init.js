@@ -31,6 +31,7 @@ class FunnelGraph {
     this.values = FunnelGraph.getValues(options);
     this.displayPercent = options.displayPercent || false;
     this.percentages = this.createPercentages();
+    this.dropOffPercentages = this.createDropOffPercentages();
     this.responsive = options.responsive || false;
     // Custom rendering
     this.renderLabel = options.renderLabel || null;
@@ -158,6 +159,7 @@ class FunnelGraph {
     for (let i = 0; i < valuesNum; i++) {
       const X = this.getMainAxisPoints();
       // traigo los valores del array en la primera posicion
+      console.log(this.getCrossAxisPoints());
       const Y = this.getCrossAxisPoints()[i];
       // traigo los valores del array en la segnda posicion
       const YNext = this.getCrossAxisPoints()[i + 1];
@@ -173,7 +175,7 @@ class FunnelGraph {
     const points = [];
     const fullDimension = this.getHeight();
     const dimension = fullDimension / 2;
-
+    console.log(dimension)
     // busco el valor mas alto
     const max = Math.max(...this.values);
     // ordeno la data de mayor a menor y duplico el ultimo valor
@@ -236,8 +238,18 @@ class FunnelGraph {
     let { values } = this;
 
     const max = Math.max(...values);
-
     return values.map((value) => roundPoint((value * 100) / max));
+  }
+
+  createDropOffPercentages() {
+    let { values } = this;
+
+    // no drop in the first element
+    const percentages = [0];
+    for (let i = 1; i < values.length; i++) {
+      percentages.push(roundPoint(100 - (values[i] * 100) / values[i - 1]));
+    }
+    return percentages;
   }
 
   addLabels() {
@@ -277,7 +289,7 @@ class FunnelGraph {
       percentageValue.setAttribute(
         "style",
         `color: ${this.colorPercent}; margin-top: ${
-          this.getCrossAxisPoints()[0][index] + 20
+          this.getCrossAxisPoints()[0][index] + 70
         }px`
       );
 
@@ -293,9 +305,29 @@ class FunnelGraph {
         );
       }
 
-      labelElement.appendChild(value);
+      // Render drop off percentage
+      const dropOffPercentageDiv = document.createElement("div");
+      const dropOffValue = this.dropOffPercentages[index];
+      dropOffPercentageDiv.setAttribute(
+        "class",
+        classes.svgFunnelLabelDropOffPercentage
+      );
+
+      if (dropOffValue !== undefined) {
+        ReactDOM.render(
+          this.renderDropOffPercentage
+            ? this.renderPercentage(index, dropOffValue)
+            : `-${dropOffValue.toString()}%`,
+          dropOffPercentageDiv
+        );
+      }
+
       labelElement.appendChild(title);
-      if (this.displayPercent) labelElement.appendChild(percentageValue);
+      labelElement.appendChild(value);
+      if (this.displayPercent) {
+        labelElement.appendChild(dropOffPercentageDiv);
+        labelElement.appendChild(percentageValue);
+      }
 
       holder.appendChild(labelElement);
     });
