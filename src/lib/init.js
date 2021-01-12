@@ -175,7 +175,7 @@ class FunnelGraph {
   getCrossAxisPoints() {
     const points = [];
     const fullDimension = this.getHeight();
-    const dimension = fullDimension / 2;
+    const dimension = (fullDimension)/ 2;
     console.log(dimension);
     // busco el valor mas alto
     const max = Math.max(...this.values);
@@ -289,9 +289,7 @@ class FunnelGraph {
       percentageValue.setAttribute("class", classes.svgFunnelLabelPercentage);
       percentageValue.setAttribute(
         "style",
-        `color: ${this.colorPercent}; margin-top: ${
-          this.getCrossAxisPoints()[0][index] + 70
-        }px`
+        `color: ${this.colorPercent}; top: ${153 + this.getHeight() / 2}px`
       );
 
       if (percentage) {

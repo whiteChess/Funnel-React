@@ -27,11 +27,13 @@ export default {
   },
   svgFunnelGraphContainer: {
     // width: '100%'
-  },
-  svgFunnelCanvas: {
     marginTop: 160,
   },
+  svgFunnelCanvas: {
+    // marginTop: 160,
+  },
   svgFunnelLabelPercentage: {
+    position: "absolute",
     fontSize: 14,
     fontWeight: "bold",
     color: "#1890FF",
