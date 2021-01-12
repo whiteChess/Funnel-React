@@ -37,6 +37,7 @@ class FunnelGraph {
     this.renderLabel = options.renderLabel || null;
     this.renderValue = options.renderValue || null;
     this.renderPercentage = options.renderPercentage || null;
+    this.renderDropOffPercentage = options.renderDropOffPercentage || null;
 
     // colors
     this.colorPercent = this.getColorPercent();
@@ -175,7 +176,7 @@ class FunnelGraph {
     const points = [];
     const fullDimension = this.getHeight();
     const dimension = fullDimension / 2;
-    console.log(dimension)
+    console.log(dimension);
     // busco el valor mas alto
     const max = Math.max(...this.values);
     // ordeno la data de mayor a menor y duplico el ultimo valor
@@ -316,7 +317,7 @@ class FunnelGraph {
       if (dropOffValue !== undefined) {
         ReactDOM.render(
           this.renderDropOffPercentage
-            ? this.renderPercentage(index, dropOffValue)
+            ? this.renderDropOffPercentage(index, dropOffValue)
             : `-${dropOffValue.toString()}%`,
           dropOffPercentageDiv
         );

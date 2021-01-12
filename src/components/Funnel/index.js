@@ -26,6 +26,7 @@ const Funnel = (props) => {
       renderLabel,
       renderValue,
       renderPercentage,
+      renderDropOffPercentage,
     } = props;
 
     renderPipeline({
@@ -46,6 +47,7 @@ const Funnel = (props) => {
       renderLabel,
       renderValue,
       renderPercentage,
+      renderDropOffPercentage,
       width,
     });
   }, []);
