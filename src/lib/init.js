@@ -160,7 +160,6 @@ class FunnelGraph {
     for (let i = 0; i < valuesNum; i++) {
       const X = this.getMainAxisPoints();
       // traigo los valores del array en la primera posicion
-      console.log(this.getCrossAxisPoints());
       const Y = this.getCrossAxisPoints()[i];
       // traigo los valores del array en la segnda posicion
       const YNext = this.getCrossAxisPoints()[i + 1];
@@ -176,7 +175,6 @@ class FunnelGraph {
     const points = [];
     const fullDimension = this.getHeight();
     const dimension = (fullDimension)/ 2;
-    console.log(dimension);
     // busco el valor mas alto
     const max = Math.max(...this.values);
     // ordeno la data de mayor a menor y duplico el ultimo valor
