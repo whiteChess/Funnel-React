@@ -1,6 +1,6 @@
 {
   "name": "funnel-react-2",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A very small library to create a modern and beautiful funnel with react",
   "author": "Islam Mahmoud <islam.mahmoud.fci@gmail.com>",
   "license": "MIT",
@@ -93,7 +93,7 @@
   "dependencies": {
     "react-jss": "^10.0.0"
   },
-  "homepage": "https://github.com/xavivzla/Funnel-React#readme",
+  "homepage": "https://github.com/whiteChess/Funnel-React#readme",
   "directories": {
     "example": "example"
   }
