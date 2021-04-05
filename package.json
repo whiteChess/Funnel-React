@@ -1,15 +1,15 @@
 {
   "name": "funnel-react-2",
-  "version": "0.1.4",
-  "description": "A very small library to create a modern and beautiful funnel",
-  "author": "Xavier Gonzalez <xavivzla.g@gmail.com>",
+  "version": "0.1.5",
+  "description": "A very small library to create a modern and beautiful funnel with react",
+  "author": "Islam Mahmoud <islam.mahmoud.fci@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xavivzla/Funnel-React.git"
+    "url": "git+https://github.com/whiteChess/Funnel-React.git"
   },
   "bugs": {
-    "url": "https://github.com/xavivzla/Funnel-React/issues"
+    "url": "https://github.com/whiteChess/Funnel-React/issues"
   },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
